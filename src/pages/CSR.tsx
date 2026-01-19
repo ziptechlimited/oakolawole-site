@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { Heart, GraduationCap, Users, HandHeart, Scale, Leaf } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 const initiatives = [
   {

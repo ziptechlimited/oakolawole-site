@@ -1,42 +1,12 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Calendar, Clock, User, ArrowRight } from 'lucide-react';
-import SectionHeader from '@/components/ui/SectionHeader';
-
-const articles = [
-  {
-    id: 1,
-    title: 'Understanding Nigerian Business Law: A Guide for Foreign Investors',
-    excerpt: 'A comprehensive overview of the legal framework governing foreign investment in Nigeria, including company registration, tax obligations, and regulatory compliance.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    author: 'Oluwole Kolawole',
-    date: 'December 15, 2024',
-    readTime: '8 min read',
-    category: 'Corporate Law',
-  },
-  {
-    id: 2,
-    title: 'Immigration Updates: New CERPAC Requirements for 2025',
-    excerpt: 'Important changes to the Combined Expatriate Residence Permit and Aliens Card (CERPAC) process and what foreign nationals need to know.',
-    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    author: 'Aniefiok Ekanem',
-    date: 'December 10, 2024',
-    readTime: '5 min read',
-    category: 'Immigration',
-  },
-  {
-    id: 3,
-    title: 'Energy Sector Reforms: Implications for Investors',
-    excerpt: 'An analysis of recent reforms in Nigeria\'s energy sector and their impact on current and prospective investors in oil, gas, and renewable energy.',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    author: 'Funmi Joseph',
-    date: 'November 28, 2024',
-    readTime: '10 min read',
-    category: 'Energy Law',
-  },
-];
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Calendar, Clock, User, ArrowRight } from "lucide-react";
+import SectionHeader from "@/components/ui/SectionHeader";
+import { articles } from "@/data/articles";
 
 const LatestArticles = () => {
+  const latestArticles = articles.slice(0, 3);
+
   return (
     <section className="section-padding bg-background">
       <div className="container-custom">
@@ -58,11 +28,13 @@ const LatestArticles = () => {
             >
               <div className="bg-card rounded-2xl overflow-hidden shadow-soft transition-all duration-300 hover:shadow-elegant">
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  <Link to={`/blog/${article.slug}`}>
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </Link>
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <span className="absolute top-4 left-4 bg-accent text-accent-foreground text-xs font-medium px-3 py-1 rounded-full">
                     {article.category}

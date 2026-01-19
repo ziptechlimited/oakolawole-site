@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { MapPin, Target, Eye, Heart, Scale, Shield, Users } from "lucide-react";
 
@@ -57,6 +58,11 @@ const offices = [
 const About = () => {
   return (
     <Layout>
+      <SEO
+        title="About Us"
+        description="Learn about O.A. Kolawole & Co., a leading Nigerian law firm committed to excellence, integrity, and client success. Discover our history and core values."
+        canonicalUrl="/about"
+      />
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-navy overflow-hidden">
         <div className="absolute inset-0 opacity-5">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -66,6 +67,11 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Contact Us"
+        description="Get in touch with O.A. Kolawole & Co. for professional legal consultation. Offices in Abuja, Lagos, and Jos."
+        canonicalUrl="/contact"
+      />
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-navy overflow-hidden">
         <div className="absolute inset-0 opacity-5">
