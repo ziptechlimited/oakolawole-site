@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* O.A. Kolawole & Co. Design System
+   All colors in HSL format for Tailwind compatibility
+*/
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --navy: 214 43% 11%; /* #0F1A2A - Deep Navy */
+    --navy-foreground: 40 33% 98%; /* Light text on navy */
+    --gold: 42 52% 54%; /* #CFA44A - Warm Gold */
+    --gold-foreground: 214 43% 11%; /* Dark text on gold */
+    --warmgrey: 36 21% 93%; /* #F2EFEA - Warm Grey */
+    --charcoal: 220 13% 19%; /* #2B2F36 - Charcoal */
+
+    /* Semantic Colors */
+    --background: 0 0% 100%;
+    --foreground: 220 13% 19%; /* Charcoal for body text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 19%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 19%;
+
+    --primary: 214 43% 11%; /* Navy */
+    --primary-foreground: 40 33% 98%;
+
+    --secondary: 36 21% 93%; /* Warm Grey */
+    --secondary-foreground: 220 13% 19%;
+
+    --muted: 36 21% 93%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 42 52% 54%; /* Gold */
+    --accent-foreground: 214 43% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 36 15% 88%;
+    --input: 36 15% 88%;
+    --ring: 42 52% 54%; /* Gold ring */
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 214 43% 11%;
+    --sidebar-foreground: 40 33% 98%;
+    --sidebar-primary: 42 52% 54%;
+    --sidebar-primary-foreground: 214 43% 11%;
+    --sidebar-accent: 214 43% 16%;
+    --sidebar-accent-foreground: 40 33% 98%;
+    --sidebar-border: 214 43% 16%;
+    --sidebar-ring: 42 52% 54%;
+  }
+
+  .dark {
+    --background: 214 43% 8%;
+    --foreground: 40 33% 98%;
+
+    --card: 214 43% 11%;
+    --card-foreground: 40 33% 98%;
+
+    --popover: 214 43% 11%;
+    --popover-foreground: 40 33% 98%;
+
+    --primary: 42 52% 54%;
+    --primary-foreground: 214 43% 11%;
+
+    --secondary: 214 43% 16%;
+    --secondary-foreground: 40 33% 98%;
+
+    --muted: 214 43% 16%;
+    --muted-foreground: 40 20% 70%;
+
+    --accent: 42 52% 54%;
+    --accent-foreground: 214 43% 11%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 43% 16%;
+    --input: 214 43% 16%;
+    --ring: 42 52% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  /* Gold underline animation for links */
+  .gold-underline {
+    @apply relative inline-block;
+  }
+  
+  .gold-underline::after {
+    content: '';
+    @apply absolute w-full h-0.5 bottom-0 left-0 bg-accent scale-x-0 origin-bottom-right transition-transform duration-300;
+  }
+  
+  .gold-underline:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+
+  /* Section padding consistency */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  /* Container with proper max-width */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  /* Soft shadow for cards */
+  .shadow-soft {
+    box-shadow: 0 4px 20px -2px rgba(15, 26, 42, 0.08);
+  }
+
+  /* Elegant shadow for images */
+  .shadow-elegant {
+    box-shadow: 0 10px 40px -10px rgba(15, 26, 42, 0.15);
+  }
+}
