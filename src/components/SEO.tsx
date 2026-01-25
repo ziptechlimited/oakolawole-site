@@ -4,61 +4,63 @@ interface SEOProps {
   title: string;
   description: string;
   canonicalUrl?: string;
-  ogType?: "website" | "article";
+  ogType?: 'website' | 'article';
   ogImage?: string;
   ogUrl?: string;
-  twitterCard?: "summary" | "summary_large_image";
+  twitterCard?: 'summary' | 'summary_large_image';
   keywords?: string[];
   structuredData?: Record<string, any>;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  ogImageType?: string;
 }
 
 const SEO = ({
   title,
   description,
   canonicalUrl,
-  ogType = "website",
+  ogType = 'website',
   ogImage,
   ogUrl,
-  twitterCard = "summary_large_image",
+  twitterCard = 'summary_large_image',
   keywords,
   structuredData,
+  ogImageWidth = 1200,
+  ogImageHeight = 630,
+  ogImageType = 'image/png',
 }: SEOProps) => {
-  const siteName = "O.A. Kolawole & Co.";
+  const siteName = 'O.A. Kolawole & Co.';
   const baseUrl = window.location.origin;
-  const fullCanonicalUrl = canonicalUrl
-    ? canonicalUrl.startsWith("http")
-      ? canonicalUrl
-      : `${baseUrl}${canonicalUrl}`
-    : window.location.href;
-  const fullOgImage = ogImage
-    ? ogImage.startsWith("http")
-      ? ogImage
-      : `${baseUrl}${ogImage}`
-    : "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80";
+  const fullCanonicalUrl = canonicalUrl ? (canonicalUrl.startsWith('http') ? canonicalUrl : `${baseUrl}${canonicalUrl}`) : window.location.href;
+  const globalOgImage = 'https://oakolawoleandco.com/og-image.png';
+  const fullOgImage = globalOgImage;
+  const isSecure = fullCanonicalUrl.startsWith('https://') || baseUrl.startsWith('https://');
 
   return (
     <Helmet>
-      {/* Standard Metadata */}
       <title>{`${title} | ${siteName}`}</title>
       <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords.join(", ")} />}
+      {keywords && <meta name="keywords" content={keywords.join(', ')} />}
       <link rel="canonical" href={fullCanonicalUrl} />
 
-      {/* Open Graph / Facebook */}
       <meta property="og:type" content={ogType} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={fullOgImage} />
+      <meta property="og:image:url" content={fullOgImage} />
+      {isSecure && <meta property="og:image:secure_url" content={fullOgImage} />}
+      <meta property="og:image:width" content={String(ogImageWidth)} />
+      <meta property="og:image:height" content={String(ogImageHeight)} />
+      <meta property="og:image:type" content={ogImageType} />
       <meta property="og:url" content={ogUrl || fullCanonicalUrl} />
       <meta property="og:site_name" content={siteName} />
 
-      {/* Twitter */}
       <meta name="twitter:card" content={twitterCard} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullOgImage} />
+      <meta name="twitter:image:src" content={fullOgImage} />
 
-      {/* Structured Data (JSON-LD) */}
       {structuredData && (
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}

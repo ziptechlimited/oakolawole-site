@@ -6,7 +6,7 @@ import SEO from "@/components/SEO";
 
 const teamMembers = [
   {
-    name: "Oluwole Kolawole, Esq.",
+    name: "Oluwole Kolawole, Esq. ACIS",
     role: "Principal Partner",
     image:
       "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
@@ -23,7 +23,7 @@ const teamMembers = [
     name: "Evelyn M. Kolawole, Esq.",
     role: "Partner",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769384391/_8102963dd_exrrch.jpg",
     bio: "Specializing in corporate and commercial law, Evelyn provides comprehensive legal support for business transactions and corporate governance.",
   },
   {
@@ -41,7 +41,28 @@ const teamMembers = [
     bio: "A dedicated legal professional with strong expertise in immigration and labour law, providing practical solutions for complex legal challenges.",
   },
   {
-    name: "Jennifer Otanwa",
+    name: "Daniel Oyetunji, Esq.",
+    role: "Associate",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    bio: "A dedicated legal professional with strong expertise in immigration and labour law, providing practical solutions for complex legal challenges.",
+  },
+  {
+    name: "Etoroabasi Umoh, Esq. AICMC",
+    role: "Associate",
+    image:
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769383600/PHOTO-2026-01-20-10-26-21_u0mlo5.jpg",
+    bio: "A dedicated legal professional with strong expertise in immigration and labour law, providing practical solutions for complex legal challenges.",
+  },
+  {
+    name: "Daniel Oyetunji, Esq. ACARB",
+    role: "Associate",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    bio: "A dedicated legal professional with strong expertise in immigration and labour law, providing practical solutions for complex legal challenges.",
+  },
+  {
+    name: "Favour Nwachukwu",
     role: "Human Resources",
     image:
       "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",

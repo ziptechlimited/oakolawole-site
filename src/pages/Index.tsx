@@ -24,7 +24,7 @@ const Index = () => {
           "@context": "https://schema.org",
           "@type": "LegalService",
           name: "O.A. Kolawole & Co.",
-          image: "https://www.oakolawole.com/logo.png",
+          image: "https://oakolawoleandco.com/logo.png",
           description:
             "Full-service Nigerian law firm providing trusted legal counsel.",
           address: {

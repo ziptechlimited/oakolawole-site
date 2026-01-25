@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.oakolawoleandco.com/sitemap.xml
+Sitemap: https://oakolawoleandco.com/sitemap.xml

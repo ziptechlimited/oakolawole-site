@@ -110,7 +110,7 @@ const ArticleDetails = () => {
               name: "O.A. Kolawole & Co.",
               logo: {
                 "@type": "ImageObject",
-                url: "https://www.oakolawole.com/logo.png",
+                url: "https://oakolawoleandco.com/logo.png",
               },
             },
             datePublished: article.date,
