@@ -1,32 +1,36 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Scale, Briefcase, Zap, Globe, ArrowRight } from 'lucide-react';
-import SectionHeader from '@/components/ui/SectionHeader';
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Scale, Briefcase, Zap, Globe, ArrowRight } from "lucide-react";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const practices = [
   {
     icon: Scale,
-    title: 'Litigation & Arbitration',
-    description: 'Decades of combined courtroom experience in Land, Contract, Banking, Human Rights, and Constitutional Law.',
-    link: '/practice#litigation',
+    title: "Litigation & Arbitration",
+    description:
+      "Decades of combined courtroom experience in Land, Contract, Banking, Human Rights, and Constitutional Law.",
+    link: "/practice#litigation",
   },
   {
     icon: Briefcase,
-    title: 'Corporate & Commercial',
-    description: 'Comprehensive support for foreign and local clients across corporate and financial transactions.',
-    link: '/practice#corporate',
+    title: "Corporate & Commercial",
+    description:
+      "Comprehensive support for foreign and local clients across corporate and financial transactions.",
+    link: "/practice#corporate",
   },
   {
     icon: Zap,
-    title: 'Energy Law',
-    description: 'Deep industry knowledge serving governments, regulators, project developers, and financial institutions.',
-    link: '/practice#energy',
+    title: "Energy Law",
+    description:
+      "Deep industry knowledge serving governments, regulators, project developers, and financial institutions.",
+    link: "/practice#energy",
   },
   {
     icon: Globe,
-    title: 'Immigration',
-    description: 'Expert assistance with CERPAC applications, work permits, and business permits for foreign investors.',
-    link: '/practice#immigration',
+    title: "Immigration",
+    description:
+      "Expert assistance with CERPAC applications, work permits, and business permits for foreign investors.",
+    link: "/practice#immigration",
   },
 ];
 
@@ -39,7 +43,6 @@ const PracticeAreas = () => {
           title="Our Core Practice Areas"
           description="We provide comprehensive legal services tailored to meet the unique needs of each client, combining expertise with innovative strategies."
         />
-
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {practices.map((practice, index) => (
             <motion.div
@@ -68,7 +71,6 @@ const PracticeAreas = () => {
             </motion.div>
           ))}
         </div>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

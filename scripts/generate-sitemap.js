@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const baseUrl = "https://www.oakolawole.ng";
+const baseUrl = "https://www.oakolawoleandco.com";
 const staticRoutes = [
   "/",
   "/about",
