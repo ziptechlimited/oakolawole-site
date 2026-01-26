@@ -9,7 +9,7 @@
 @layer base {
   :root {
     /* Brand Colors */
-    --navy: 214 43% 11%; /* #0F1A2A - Deep Navy */
+    --navy: 217 84% 33%; /* #0d3fa1 - Deep Navy */
     --navy-foreground: 40 33% 98%; /* Light text on navy */
     --gold: 42 52% 54%; /* #CFA44A - Warm Gold */
     --gold-foreground: 214 43% 11%; /* Dark text on gold */
@@ -101,7 +101,12 @@
     @apply bg-background text-foreground font-inter antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-playfair;
   }
 }
@@ -111,12 +116,12 @@
   .gold-underline {
     @apply relative inline-block;
   }
-  
+
   .gold-underline::after {
-    content: '';
+    content: "";
     @apply absolute w-full h-0.5 bottom-0 left-0 bg-accent scale-x-0 origin-bottom-right transition-transform duration-300;
   }
-  
+
   .gold-underline:hover::after {
     @apply scale-x-100 origin-bottom-left;
   }
