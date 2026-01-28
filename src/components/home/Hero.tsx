@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center bg-navy overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-navy-gradient overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -17,7 +17,7 @@ const Hero = () => {
       </div>
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy/95 to-navy/90" />
+      <div className="absolute inset-0 bg-navy-gradient" />
 
       <div className="container-custom relative z-10 pt-24 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">

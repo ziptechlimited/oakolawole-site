@@ -1,33 +1,48 @@
-import { motion } from 'framer-motion';
-import Layout from '@/components/layout/Layout';
-import SectionHeader from '@/components/ui/SectionHeader';
-import { Heart, GraduationCap, Users, HandHeart, Scale, Leaf } from 'lucide-react';
-import SEO from '@/components/SEO';
+import { motion } from "framer-motion";
+import Layout from "@/components/layout/Layout";
+import SectionHeader from "@/components/ui/SectionHeader";
+import {
+  Heart,
+  GraduationCap,
+  Users,
+  HandHeart,
+  Scale,
+  Leaf,
+} from "lucide-react";
+import SEO from "@/components/SEO";
 
 const initiatives = [
   {
     icon: GraduationCap,
-    title: 'Legal Education Outreach',
-    description: 'We conduct free legal awareness programs in schools and communities, educating citizens about their rights and the legal system.',
-    image: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    title: "Legal Education Outreach",
+    description:
+      "We conduct free legal awareness programs in schools and communities, educating citizens about their rights and the legal system.",
+    image:
+      "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
   },
   {
     icon: Scale,
-    title: 'Pro Bono Legal Services',
-    description: 'Our team provides free legal representation to individuals who cannot afford legal services, ensuring access to justice for all.',
-    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    title: "Pro Bono Legal Services",
+    description:
+      "Our team provides free legal representation to individuals who cannot afford legal services, ensuring access to justice for all.",
+    image:
+      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
   },
   {
     icon: Users,
-    title: 'Community Development',
-    description: 'We actively participate in community development initiatives, supporting local projects that improve the quality of life.',
-    image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    title: "Community Development",
+    description:
+      "We actively participate in community development initiatives, supporting local projects that improve the quality of life.",
+    image:
+      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
   },
   {
     icon: HandHeart,
-    title: 'Youth Mentorship',
-    description: 'Through our mentorship program, we guide aspiring legal professionals and students pursuing careers in law.',
-    image: 'https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    title: "Youth Mentorship",
+    description:
+      "Through our mentorship program, we guide aspiring legal professionals and students pursuing careers in law.",
+    image:
+      "https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
   },
 ];
 
@@ -35,11 +50,14 @@ const CSR = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-navy overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-navy-gradient overflow-hidden">
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23CFA44A' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23CFA44A' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          />
         </div>
         <div className="container-custom relative z-10">
           <motion.div
@@ -55,8 +73,8 @@ const CSR = () => {
               Corporate Social Responsibility
             </h1>
             <p className="text-xl text-white/70 leading-relaxed">
-              At O.A. Kolawole & Co., we believe in giving back to our communities 
-              and making a positive impact beyond the courtroom.
+              At O.A. Kolawole & Co., we believe in giving back to our
+              communities and making a positive impact beyond the courtroom.
             </p>
           </motion.div>
         </div>
@@ -80,19 +98,21 @@ const CSR = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  We recognize that our responsibility extends beyond providing legal services. 
-                  As a leading Nigerian law firm, we are committed to contributing positively 
-                  to the society in which we operate.
+                  We recognize that our responsibility extends beyond providing
+                  legal services. As a leading Nigerian law firm, we are
+                  committed to contributing positively to the society in which
+                  we operate.
                 </p>
                 <p>
-                  Our corporate social responsibility initiatives focus on education, access to 
-                  justice, community development, and environmental sustainability. We believe 
-                  that by investing in these areas, we can help build a better Nigeria.
+                  Our corporate social responsibility initiatives focus on
+                  education, access to justice, community development, and
+                  environmental sustainability. We believe that by investing in
+                  these areas, we can help build a better Nigeria.
                 </p>
                 <p>
-                  Through strategic partnerships with non-profit organizations, educational 
-                  institutions, and community groups, we work to create lasting positive change 
-                  in the lives of those we serve.
+                  Through strategic partnerships with non-profit organizations,
+                  educational institutions, and community groups, we work to
+                  create lasting positive change in the lives of those we serve.
                 </p>
               </div>
             </motion.div>
@@ -164,7 +184,7 @@ const CSR = () => {
       </section>
 
       {/* Impact Stats */}
-      <section className="section-padding bg-navy">
+      <section className="section-padding bg-navy-gradient">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -177,16 +197,16 @@ const CSR = () => {
               Our Impact
             </h2>
             <p className="text-white/70 text-lg">
-              Through our CSR initiatives, we have touched the lives of many 
+              Through our CSR initiatives, we have touched the lives of many
               individuals and communities across Nigeria.
             </p>
           </motion.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { number: '500+', label: 'Pro Bono Hours' },
-              { number: '20+', label: 'Schools Reached' },
-              { number: '1,000+', label: 'Lives Impacted' },
-              { number: '15+', label: 'Community Projects' },
+              { number: "500+", label: "Pro Bono Hours" },
+              { number: "20+", label: "Schools Reached" },
+              { number: "1,000+", label: "Lives Impacted" },
+              { number: "15+", label: "Community Projects" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -221,8 +241,9 @@ const CSR = () => {
               Get Involved
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              We welcome partnerships with organizations and individuals who share 
-              our commitment to making a positive impact in our communities.
+              We welcome partnerships with organizations and individuals who
+              share our commitment to making a positive impact in our
+              communities.
             </p>
             <a
               href="/contact"

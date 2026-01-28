@@ -9,15 +9,15 @@ const teamMembers = [
     name: "Oluwole Kolawole, Esq. ACIS",
     role: "Principal Partner",
     image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769614564/kolawole.jpg",
     bio: "Leading the firm with decades of experience in corporate and litigation practice, Oluwole brings unmatched expertise and leadership to every case.",
   },
   {
-    name: "Gbenga Lamina, Esq.",
+    name: "Olugbenga Lamina, Esq.",
     role: "Partner",
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    bio: "A seasoned litigator with extensive experience in banking and financial services law, providing strategic counsel to institutional clients.",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769614463/lamina.jpg",
+    bio: "Called to the Bar in November 2016, Olugbenga holds an LLM in Energy Law from the University of Ibadan and an MBL from Technische Universität Berlin. Former counsel at M.B Ganiyu & Co and Abuja Electricity Distribution Company, he now brings his energy-sector insight to the partnership at O.A. Kolawole & Co.",
   },
   {
     name: "Evelyn M. Kolawole, Esq.",
@@ -65,7 +65,7 @@ const teamMembers = [
     name: "Favour Nwachukwu",
     role: "Human Resources",
     image:
-      "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769614463/favour.jpg",
     bio: "Ensuring our team operates at peak performance, Jennifer manages our human resources and administrative functions with dedication.",
   },
 ];
@@ -74,7 +74,7 @@ const Team = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-navy overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-navy-gradient overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div
             className="absolute inset-0"

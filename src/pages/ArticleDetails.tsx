@@ -119,7 +119,7 @@ const ArticleDetails = () => {
         />
       )}
       {/* Article Header */}
-      <section className="relative pt-32 pb-12 bg-navy">
+      <section className="relative pt-32 pb-12 bg-navy-gradient">
         <div className="absolute inset-0 opacity-5">
           <div
             className="absolute inset-0"
@@ -255,7 +255,7 @@ const ArticleDetails = () => {
                 </div>
 
                 {/* Newsletter Box */}
-                <div className="bg-navy p-6 rounded-xl text-white">
+                <div className="bg-navy-gradient p-6 rounded-xl text-white">
                   <h3 className="font-playfair text-xl font-semibold mb-3">
                     Subscribe
                   </h3>

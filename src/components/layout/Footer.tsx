@@ -25,7 +25,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-navy text-white/90">
+    <footer className="bg-navy-gradient text-white/90">
       {/* CTA Section */}
       <div className="border-b border-white/10">
         <div className="container-custom py-16 md:py-20">

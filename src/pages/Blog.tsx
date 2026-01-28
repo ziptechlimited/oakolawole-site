@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Layout from '@/components/layout/Layout';
-import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
-import { articles } from '@/data/articles';
-import SEO from '@/components/SEO';
+import Layout from "@/components/layout/Layout";
+import { Calendar, User, ArrowRight, Clock } from "lucide-react";
+import { articles } from "@/data/articles";
+import SEO from "@/components/SEO";
 
 const Blog = () => {
   return (
@@ -14,7 +14,7 @@ const Blog = () => {
         canonicalUrl="/blog"
       />
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-navy overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-navy-gradient overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div
             className="absolute inset-0"

@@ -64,7 +64,7 @@ const About = () => {
         canonicalUrl="/about"
       />
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-navy overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-navy-gradient overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div
             className="absolute inset-0"

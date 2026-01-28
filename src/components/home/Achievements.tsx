@@ -1,32 +1,36 @@
-import { motion } from 'framer-motion';
-import { Trophy, Users, Building, Award } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Trophy, Users, Building, Award } from "lucide-react";
 
 const achievements = [
   {
     icon: Trophy,
-    title: 'FRM Communications',
-    description: 'Successfully represented FRM Communications Limited against Keystone Bank in a complex financial dispute.',
+    title: "FRM Communications",
+    description:
+      "Successfully represented FRM Communications Limited against Keystone Bank in a complex financial dispute.",
   },
   {
     icon: Building,
-    title: 'Mainstream Energy',
-    description: 'Ongoing representation of Mainstream Energy Solutions before the National Industrial Court of Nigeria.',
+    title: "Mainstream Energy",
+    description:
+      "Ongoing representation of Mainstream Energy Solutions before the National Industrial Court of Nigeria.",
   },
   {
     icon: Award,
-    title: 'Mars Exploration',
-    description: 'Representing Mars Exploration & Production Limited in matters before the Industrial Arbitration Panel.',
+    title: "Mars Exploration",
+    description:
+      "Representing Mars Exploration & Production Limited in matters before the Industrial Arbitration Panel.",
   },
   {
     icon: Users,
-    title: 'Client Success',
-    description: 'Consistent track record of achieving favorable outcomes for clients across various legal matters.',
+    title: "Client Success",
+    description:
+      "Consistent track record of achieving favorable outcomes for clients across various legal matters.",
   },
 ];
 
 const Achievements = () => {
   return (
-    <section className="section-padding bg-navy">
+    <section className="section-padding bg-navy-gradient">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,8 +46,9 @@ const Achievements = () => {
             Notable Achievements
           </h2>
           <p className="text-white/70 text-lg">
-            Our firm has successfully represented clients in landmark cases across Nigeria, 
-            establishing a reputation for excellence in legal practice.
+            Our firm has successfully represented clients in landmark cases
+            across Nigeria, establishing a reputation for excellence in legal
+            practice.
           </p>
         </motion.div>
 
