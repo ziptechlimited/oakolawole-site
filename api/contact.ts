@@ -21,32 +21,44 @@ export default async function handler(req: any, res: any) {
 
   RATE_LIMIT.set(ip, [...recent, now]);
 
-  const { name, email, phone, subject, message, token } = req.body;
+  const {
+    name,
+    email,
+    phone,
+    subject,
+    message,
+    // token
+  } = req.body;
 
-  if (!name || !email || !message || !token) {
+  if (
+    !name ||
+    !email ||
+    !message
+    // || !token
+  ) {
     return res.status(400).json({ message: "Missing fields" });
   }
 
-  const captchaRes = await fetch(
-    "https://www.google.com/recaptcha/api/siteverify",
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
-    },
-  );
+  // const captchaRes = await fetch(
+  //   "https://www.google.com/recaptcha/api/siteverify",
+  //   {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //     body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
+  //   },
+  // );
 
-  interface RecaptchaResponse {
-    success: boolean;
-    score?: number;
-    action?: string;
-    hostname?: string;
-  }
+  // interface RecaptchaResponse {
+  //   success: boolean;
+  //   score?: number;
+  //   action?: string;
+  //   hostname?: string;
+  // }
 
-  const captchaData = (await captchaRes.json()) as RecaptchaResponse;
-  if (!captchaData.success || captchaData.score < 0.5) {
-    return res.status(403).json({ message: "Captcha failed" });
-  }
+  // const captchaData = (await captchaRes.json()) as RecaptchaResponse;
+  // if (!captchaData.success || captchaData.score < 0.5) {
+  //   return res.status(403).json({ message: "Captcha failed" });
+  // }
 
   const transporter = nodemailer.createTransport({
     host: "smtp.zoho.com",
@@ -54,7 +66,7 @@ export default async function handler(req: any, res: any) {
     secure: true,
     auth: {
       user: "info@oakolawoleandco.com",
-      pass: process.env.ZOHO_EMAIL_PASSWORD,
+      pass: "Mr_davID@01",
     },
   });
 

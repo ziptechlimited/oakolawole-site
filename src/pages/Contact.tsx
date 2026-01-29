@@ -55,16 +55,19 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (!executeRecaptcha) {
-      return;
-    }
+    // if (!executeRecaptcha) {
+    //   return;
+    // }
     try {
-      const token = await executeRecaptcha("contact_form");
+      // const token = await executeRecaptcha("contact_form");
 
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, token }),
+        body: JSON.stringify({
+          ...formData,
+          // , token
+        }),
       });
 
       if (!res.ok) throw new Error();
