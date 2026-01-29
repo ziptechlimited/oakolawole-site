@@ -82,11 +82,11 @@ const Footer = () => {
                 <span className="text-sm">090 2204 3227</span>
               </a>
               <a
-                href="mailto:oakolawole89@gmail.com"
+                href="mailto:info@oakolawoleandco.com"
                 className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors"
               >
                 <Mail size={16} />
-                <span className="text-sm">oakolawole89@gmail.com</span>
+                <span className="text-sm">info@oakolawoleandco.com</span>
               </a>
             </div>
           </div>

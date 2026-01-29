@@ -16,7 +16,7 @@ const teamMembers = [
     name: "Olugbenga Lamina, Esq.",
     role: "Partner",
     image:
-      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769614463/lamina.jpg",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769614463/olugbenga.jpg",
     bio: "Called to the Bar in November 2016, Olugbenga holds an LLM in Energy Law from the University of Ibadan and an MBL from Technische Universität Berlin. Former counsel at M.B Ganiyu & Co and Abuja Electricity Distribution Company, he now brings his energy-sector insight to the partnership at O.A. Kolawole & Co.",
   },
   {
