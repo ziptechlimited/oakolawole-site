@@ -20,17 +20,17 @@ const teamMembers = [
     bio: "Called to the Bar in November 2016, Olugbenga holds an LLM in Energy Law from the University of Ibadan and an MBL from Technische Universität Berlin. Former counsel at M.B Ganiyu & Co and Abuja Electricity Distribution Company, he now brings his energy-sector insight to the partnership at O.A. Kolawole & Co.",
   },
   {
-    name: "Evelyn M. Kolawole, Esq.",
+    name: "Evelyn M. Kolawole, Esq. DRS",
     role: "Partner",
     image:
-      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769384391/_8102963dd_exrrch.jpg",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769384391/evelyn.jpg",
     bio: "Specializing in corporate and commercial law, Evelyn provides comprehensive legal support for business transactions and corporate governance.",
   },
   {
     name: "Funmi Joseph",
     role: "Partner in Charge, Lagos Office",
     image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769384391/funmi.jpg",
     bio: "Leading our Lagos operations with expertise in energy law and commercial litigation, Funmi ensures our Lagos clients receive exceptional service.",
   },
   {
@@ -41,24 +41,17 @@ const teamMembers = [
     bio: "A dedicated legal professional with strong expertise in immigration and labour law, providing practical solutions for complex legal challenges.",
   },
   {
-    name: "Daniel Oyetunji, Esq.",
+    name: "Daniel Oyetunji, Esq. ACArb",
     role: "Associate",
     image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769384391/daniel.jpg",
     bio: "A dedicated legal professional with strong expertise in immigration and labour law, providing practical solutions for complex legal challenges.",
   },
   {
     name: "Etoroabasi Umoh, Esq. AICMC",
     role: "Associate",
     image:
-      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769383600/PHOTO-2026-01-20-10-26-21_u0mlo5.jpg",
-    bio: "A dedicated legal professional with strong expertise in immigration and labour law, providing practical solutions for complex legal challenges.",
-  },
-  {
-    name: "Daniel Oyetunji, Esq. ACARB",
-    role: "Associate",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769384391/etoroabasi.jpg",
     bio: "A dedicated legal professional with strong expertise in immigration and labour law, providing practical solutions for complex legal challenges.",
   },
   {

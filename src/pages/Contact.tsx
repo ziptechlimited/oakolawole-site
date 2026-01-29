@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const offices = [
   {
@@ -48,21 +49,42 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    if (!executeRecaptcha) {
+      return;
+    }
+    try {
+      const token = await executeRecaptcha("contact_form");
 
-    toast({
-      title: "Message Sent!",
-      description:
-        "Thank you for contacting us. We'll get back to you shortly.",
-    });
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, token }),
+      });
 
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-    setIsSubmitting(false);
+      if (!res.ok) throw new Error();
+
+      toast({
+        title: "Message Sent!",
+        description:
+          "Thank you for contacting us. We'll get back to you shortly.",
+      });
+
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -261,7 +283,7 @@ const Contact = () => {
                       href="mailto:oakolawole89@gmail.com"
                       className="text-muted-foreground hover:text-accent transition-colors"
                     >
-                      oakolawole89@gmail.com
+                      info@oakolawoleandco.com
                     </a>
                   </div>
                 </div>
