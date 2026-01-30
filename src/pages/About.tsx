@@ -36,7 +36,7 @@ const offices = [
     address:
       "Suite 19, Jinifa Plaza, Plot 1014, Samuel Ademulegun Avenue, Central Business District",
     image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769734685/wole002_di5afl.jpg",
   },
   {
     city: "Lagos",
@@ -44,7 +44,7 @@ const offices = [
     address:
       "Plot 6, Block 113, Adebisi Ogunniyi Crescent, off Agungi-Ajiran Road, Lekki-Epe Expressway",
     image:
-      "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769734827/wole_001_bigkzz.jpg",
   },
   {
     city: "Jos",
@@ -143,7 +143,7 @@ const About = () => {
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-elegant">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  src="https://res.cloudinary.com/dgxl5swen/image/upload/v1769614564/kolawole.jpg"
                   alt="Law firm team discussion"
                   className="w-full h-full object-cover"
                 />
@@ -271,7 +271,7 @@ const About = () => {
                     <h3 className="font-playfair text-xl font-semibold text-primary mb-2">
                       {office.city}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-sm min-h-[2lh] leading-relaxed">
                       {office.address}
                     </p>
                   </div>

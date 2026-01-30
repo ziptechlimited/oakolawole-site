@@ -48,7 +48,7 @@ const practiceAreas = [
       "Foreign Investment Advisory",
     ],
     image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769735099/dav_skwb0p.jpg",
   },
   {
     id: "energy",
@@ -96,7 +96,7 @@ const practiceAreas = [
       "Regulatory Matters",
     ],
     image:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769733215/sign_zm6xic.jpg",
   },
   {
     id: "labour",
@@ -112,7 +112,7 @@ const practiceAreas = [
       "Labour Act Matters",
     ],
     image:
-      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769731881/labour_law.jpg",
   },
   {
     id: "insolvency",
@@ -160,7 +160,7 @@ const practiceAreas = [
       "Intellectual Property",
     ],
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769731544/shelves.jpg",
   },
 ];
 

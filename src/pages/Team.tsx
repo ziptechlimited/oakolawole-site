@@ -11,6 +11,8 @@ const teamMembers = [
     image:
       "https://res.cloudinary.com/dgxl5swen/image/upload/v1769614564/kolawole.jpg",
     bio: "Leading the firm with decades of experience in corporate and litigation practice, Oluwole brings unmatched expertise and leadership to every case.",
+    email: "oakolawole@oakolawoleandco.com",
+    linkedin: "https://www.linkedin.com/in/oluwakolawole/",
   },
   {
     name: "Olugbenga Lamina, Esq.",
@@ -18,6 +20,8 @@ const teamMembers = [
     image:
       "https://res.cloudinary.com/dgxl5swen/image/upload/v1769614463/olugbenga.jpg",
     bio: "Called to the Bar in November 2016, Olugbenga holds an LLM in Energy Law from the University of Ibadan and an MBL from Technische Universität Berlin. Former counsel at M.B Ganiyu & Co and Abuja Electricity Distribution Company, he now brings his energy-sector insight to the partnership at O.A. Kolawole & Co.",
+    email: "olugbenga@oakolawoleandco.com",
+    linkedin: "https://www.linkedin.com/in/olugbenga-lamina/",
   },
   {
     name: "Evelyn M. Kolawole, Esq. DRS",
@@ -25,6 +29,8 @@ const teamMembers = [
     image:
       "https://res.cloudinary.com/dgxl5swen/image/upload/v1769384391/evelyn.jpg",
     bio: "Specializing in corporate and commercial law, Evelyn provides comprehensive legal support for business transactions and corporate governance.",
+    email: "moteve12@oakolawoleandco.com",
+    linkedin: "https://www.linkedin.com/in/evelyn-kolawole-45452414/",
   },
   {
     name: "Funmi Joseph",
@@ -32,6 +38,8 @@ const teamMembers = [
     image:
       "https://res.cloudinary.com/dgxl5swen/image/upload/v1769384391/funmi.jpg",
     bio: "Leading our Lagos operations with expertise in energy law and commercial litigation, Funmi ensures our Lagos clients receive exceptional service.",
+    email: "funmi@oakolawoleandco.com",
+    linkedin: "https://www.linkedin.com/in/funmi-joseph-9a944a14/",
   },
   {
     name: "Aniefiok Ekanem, Esq.",
@@ -39,6 +47,8 @@ const teamMembers = [
     image:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
     bio: "A dedicated legal professional with strong expertise in immigration and labour law, providing practical solutions for complex legal challenges.",
+    email: "aniefiok@oakolawoleandco.com",
+    linkedin: "https://www.linkedin.com/in/aniefiok-ekanem-9a944a14/",
   },
   {
     name: "Daniel Oyetunji, Esq. ACArb",
@@ -46,13 +56,17 @@ const teamMembers = [
     image:
       "https://res.cloudinary.com/dgxl5swen/image/upload/v1769384391/daniel.jpg",
     bio: "A dedicated legal professional with strong expertise in immigration and labour law, providing practical solutions for complex legal challenges.",
+    email: "danieloyetunji@oakolawoleandco.com",
+    linkedin: "https://www.linkedin.com/in/daniel-oyetunji-9a944a14/",
   },
   {
     name: "Etoroabasi Umoh, Esq. AICMC",
     role: "Associate",
     image:
-      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769384391/etoroabasi.jpg",
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1769384391/etoroabasi2.jpg",
     bio: "A dedicated legal professional with strong expertise in immigration and labour law, providing practical solutions for complex legal challenges.",
+    email: "etoroabasiumoh@oakolawoleandco.com",
+    linkedin: "https://www.linkedin.com/in/etoroabasi-umoh-9a944a14/",
   },
   {
     name: "Favour Nwachukwu",
@@ -60,6 +74,8 @@ const teamMembers = [
     image:
       "https://res.cloudinary.com/dgxl5swen/image/upload/v1769614463/favour.jpg",
     bio: "Ensuring our team operates at peak performance, Jennifer manages our human resources and administrative functions with dedication.",
+    email: "fnwachukwu@oakolawoleandco.com",
+    linkedin: "https://www.linkedin.com/in/favour-nwachukwu-9a944a14/",
   },
 ];
 
@@ -122,14 +138,16 @@ const Team = () => {
                     {/* Hover Actions */}
                     <div className="absolute bottom-4 left-4 right-4 flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <a
-                        href="#"
+                        href={`mailto:${member.email}`}
                         className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
                         aria-label={`Email ${member.name}`}
                       >
                         <Mail size={18} className="text-navy" />
                       </a>
                       <a
-                        href="#"
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
                         aria-label={`LinkedIn profile of ${member.name}`}
                       >

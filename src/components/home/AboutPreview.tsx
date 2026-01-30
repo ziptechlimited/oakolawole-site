@@ -1,13 +1,13 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { CheckCircle, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { CheckCircle, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const features = [
-  'High-quality legal services tailored to unique needs',
-  'Building relationships based on trust and mutual respect',
-  'Innovative strategies for immediate and long-term goals',
-  'Strategic locations: Abuja, Lagos, and Jos',
+  "High-quality legal services tailored to unique needs",
+  "Building relationships based on trust and mutual respect",
+  "Innovative strategies for immediate and long-term goals",
+  "Strategic locations: Abuja, Lagos, and Jos",
 ];
 
 const AboutPreview = () => {
@@ -25,7 +25,7 @@ const AboutPreview = () => {
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-elegant">
               <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="https://res.cloudinary.com/dgxl5swen/image/upload/v1769734169/okiuuy_ap4qj9.png"
                 alt="Modern office meeting"
                 className="w-full h-full object-cover"
               />
@@ -38,7 +38,9 @@ const AboutPreview = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="absolute -bottom-8 -right-8 bg-navy text-white p-6 rounded-xl shadow-elegant hidden md:block"
             >
-              <p className="font-playfair text-4xl font-semibold text-accent mb-1">100%</p>
+              <p className="font-playfair text-4xl font-semibold text-accent mb-1">
+                100%
+              </p>
               <p className="text-white/70 text-sm">Client Commitment</p>
             </motion.div>
             {/* Decorative Element */}
@@ -60,14 +62,16 @@ const AboutPreview = () => {
               A Full-Service Nigerian Law Firm
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              O.A. Kolawole & Co. is a full-service law firm positioned to render high quality 
-              legal services tailored to meet the unique needs of each client. With a commitment 
-              to excellence, ethics, and professionalism, we strive to be the trusted legal 
-              partner our clients deserve.
+              O.A. Kolawole & Co. is a full-service law firm positioned to
+              render high quality legal services tailored to meet the unique
+              needs of each client. With a commitment to excellence, ethics, and
+              professionalism, we strive to be the trusted legal partner our
+              clients deserve.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              We are dedicated to building relationships based on trust and mutual respect, 
-              providing sound advice, effective advocacy, and exceptional representation.
+              We are dedicated to building relationships based on trust and
+              mutual respect, providing sound advice, effective advocacy, and
+              exceptional representation.
             </p>
 
             <ul className="space-y-3 mb-8">
@@ -86,7 +90,11 @@ const AboutPreview = () => {
               ))}
             </ul>
 
-            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+            <Button
+              asChild
+              size="lg"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground"
+            >
               <Link to="/about">
                 Learn More About Us
                 <ArrowRight size={18} className="ml-2" />
