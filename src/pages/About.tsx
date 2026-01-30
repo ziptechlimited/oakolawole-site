@@ -141,7 +141,7 @@ const About = () => {
               transition={{ duration: 0.7 }}
               className="relative"
             >
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-elegant">
+              <div className="aspect-[4/4] rounded-2xl overflow-hidden shadow-elegant">
                 <img
                   src="https://res.cloudinary.com/dgxl5swen/image/upload/v1769614564/kolawole.jpg"
                   alt="Law firm team discussion"
