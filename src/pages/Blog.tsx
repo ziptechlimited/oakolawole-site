@@ -1,11 +1,124 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
-import { Calendar, User, ArrowRight, Clock } from "lucide-react";
-import { articles } from "@/data/articles";
 import SEO from "@/components/SEO";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { logo } from "@/assets";
+import { getArticles } from "@/lib/articles";
+import { getInstagramPosts } from "@/lib/instagram";
+import type { BlogPost } from "@/data/articles";
+import type { InstagramPost } from "@/types/instagram";
+import ArticleCard from "@/components/articles/ArticleCard";
+import PostCard from "@/components/instagram/PostCard";
+
+const PAGE_SIZE = 6;
 
 const Blog = () => {
+  const [active, setActive] = useState<"articles" | "instagram">("articles");
+
+  // Articles state
+  const [articles, setArticles] = useState<BlogPost[]>([]);
+  const [aPage, setAPage] = useState(1);
+  const [aTotal, setATotal] = useState(0);
+  const [aLoading, setALoading] = useState(true);
+  const [aFetchingMore, setAFetchingMore] = useState(false);
+  const [aError, setAError] = useState<string | null>(null);
+  const [aHasMore, setAHasMore] = useState(true);
+  const aSentinelRef = useRef<HTMLDivElement | null>(null);
+
+  // Instagram state
+  const [posts, setPosts] = useState<InstagramPost[]>([]);
+  const [iPage, setIPage] = useState(1);
+  const [iTotal, setITotal] = useState(0);
+  const [iLoading, setILoading] = useState(true);
+  const [iFetchingMore, setIFetchingMore] = useState(false);
+  const [iError, setIError] = useState<string | null>(null);
+  const [iHasMore, setIHasMore] = useState(true);
+  const iSentinelRef = useRef<HTMLDivElement | null>(null);
+
+  // Live region
+  const liveRef = useRef<HTMLDivElement | null>(null);
+
+  const announce = (msg: string) => {
+    if (liveRef.current) liveRef.current.textContent = msg;
+  };
+
+  const loadArticles = async (page: number, initial = false) => {
+    if (initial) setALoading(true);
+    else setAFetchingMore(true);
+    setAError(null);
+    try {
+      const res = await getArticles({ page, pageSize: PAGE_SIZE });
+      setATotal(res.total);
+      setArticles((prev) => (page === 1 ? res.items : [...prev, ...res.items]));
+      setAHasMore(page * PAGE_SIZE < res.total);
+      announce(`Loaded ${res.items.length} articles`);
+    } catch {
+      setAError("Failed to load articles. Please try again.");
+    } finally {
+      setALoading(false);
+      setAFetchingMore(false);
+    }
+  };
+
+  const loadInstagram = async (page: number, initial = false) => {
+    if (initial) setILoading(true);
+    else setIFetchingMore(true);
+    setIError(null);
+    try {
+      const res = await getInstagramPosts({ page, pageSize: PAGE_SIZE });
+      setITotal(res.total);
+      setPosts((prev) => (page === 1 ? res.items : [...prev, ...res.items]));
+      setIHasMore(page * PAGE_SIZE < res.total);
+      announce(`Loaded ${res.items.length} posts`);
+    } catch {
+      setIError("Failed to load Instagram posts. Please try again.");
+    } finally {
+      setILoading(false);
+      setIFetchingMore(false);
+    }
+  };
+
+  useEffect(() => {
+    loadArticles(1, true);
+    loadInstagram(1, true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Observe sentinel for active tab only
+  useEffect(() => {
+    let observer: IntersectionObserver | null = null;
+    const el =
+      active === "articles" ? aSentinelRef.current : iSentinelRef.current;
+    if (!el) return;
+    const cb: IntersectionObserverCallback = (entries) => {
+      const entry = entries[0];
+      if (!entry.isIntersecting) return;
+      if (active === "articles" && aHasMore && !aFetchingMore) {
+        const next = aPage + 1;
+        setAPage(next);
+        loadArticles(next);
+      } else if (active === "instagram" && iHasMore && !iFetchingMore) {
+        const next = iPage + 1;
+        setIPage(next);
+        loadInstagram(next);
+      }
+    };
+    observer = new IntersectionObserver(cb, { rootMargin: "200px" });
+    observer.observe(el);
+    return () => observer?.disconnect();
+  }, [active, aPage, iPage, aHasMore, iHasMore, aFetchingMore, iFetchingMore]);
+
+  const aCount = useMemo(
+    () => `${articles.length}${aTotal ? ` of ${aTotal}` : ""}`,
+    [articles.length, aTotal],
+  );
+  const iCount = useMemo(
+    () => `${posts.length}${iTotal ? ` of ${iTotal}` : ""}`,
+    [posts.length, iTotal],
+  );
   return (
     <Layout>
       <SEO
@@ -34,7 +147,7 @@ const Blog = () => {
               Insights & Updates
             </span>
             <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6">
-              Articles
+              Blog
             </h1>
             <p className="text-xl text-white/70 leading-relaxed">
               Stay informed with our latest legal insights, industry updates,
@@ -44,69 +157,175 @@ const Blog = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* Articles Grid */}
-      <section className="section-padding bg-background">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.map((article, index) => (
-              <motion.article
-                key={article.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
-                className="group"
-              >
-                <div className="bg-card rounded-2xl overflow-hidden shadow-soft transition-all duration-300 hover:shadow-elegant">
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Link to={`/blog/${article.slug}`}>
-                      <img
-                        src={article.image}
-                        alt={article.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </Link>
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <span className="absolute top-4 left-4 bg-accent text-accent-foreground text-xs font-medium px-3 py-1 rounded-full">
-                      {article.category}
-                    </span>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-4 text-muted-foreground text-sm mb-3">
-                      <span className="flex items-center gap-1">
-                        <Calendar size={14} />
-                        {article.date}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock size={14} />
-                        {article.readTime}
-                      </span>
-                    </div>
-                    <h2 className="font-playfair text-xl font-semibold text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors">
-                      {article.title}
-                    </h2>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
-                      {article.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <User size={14} />
-                        {article.author}
-                      </span>
-                      <Link
-                        to={`/blog/${article.slug}`}
-                        className="inline-flex items-center gap-1 text-accent text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity"
-                      >
-                        Read More <ArrowRight size={14} />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
+      <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur">
+        <div className="container-custom flex items-center justify-between py-3">
+          <div className="flex items-center gap-3">
+            <img src={logo} alt="" className="h-8 w-auto" />
+            <h1 className="text-lg font-semibold">Explore</h1>
           </div>
+          <Tabs
+            value={active}
+            onValueChange={(v) => setActive(v as "articles" | "instagram")}
+          >
+            <TabsList className="bg-secondary">
+              <TabsTrigger
+                value="articles"
+                className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground transition-all duration-300 ease-in-out"
+              >
+                Articles
+              </TabsTrigger>
+              <TabsTrigger
+                value="instagram"
+                className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground transition-all duration-300 ease-in-out"
+              >
+                Instagram
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
         </div>
+      </header>
+      <section className="container-custom py-6">
+        <Tabs
+          value={active}
+          onValueChange={(v) => setActive(v as "articles" | "instagram")}
+        >
+          <TabsContent value="articles" className="focus:outline-none">
+            {aLoading ? (
+              <div
+                className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3"
+                role="status"
+                aria-label="Loading articles"
+              >
+                {Array.from({ length: PAGE_SIZE }).map((_, i) => (
+                  <div key={i} className="rounded-2xl border p-4">
+                    <Skeleton className="aspect-[16/10] w-full rounded-lg" />
+                    <div className="mt-4 space-y-2">
+                      <Skeleton className="h-3 w-24" />
+                      <Skeleton className="h-4 w-3/4" />
+                      <Skeleton className="h-4 w-2/3" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : aError ? (
+              <div className="mx-auto max-w-md rounded-xl border p-6 text-center">
+                <p className="mb-4 text-muted-foreground">{aError}</p>
+                <Button
+                  onClick={() => {
+                    setAPage(1);
+                    loadArticles(1, true);
+                  }}
+                >
+                  Retry
+                </Button>
+              </div>
+            ) : (
+              <>
+                <div
+                  className="mb-4 text-sm text-muted-foreground"
+                  aria-live="polite"
+                >
+                  {aCount} articles
+                </div>
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+                  {articles.map((a, i) => (
+                    <ArticleCard key={a.id} article={a} index={i} />
+                  ))}
+                </div>
+                <div ref={aSentinelRef} className="h-px w-full" />
+                {aHasMore && (
+                  <div className="mt-6 flex justify-center">
+                    <Button
+                      variant="outline"
+                      onClick={() => {
+                        const next = aPage + 1;
+                        setAPage(next);
+                        loadArticles(next);
+                      }}
+                      disabled={aFetchingMore}
+                    >
+                      {aFetchingMore ? "Loading…" : "Load more"}
+                    </Button>
+                  </div>
+                )}
+              </>
+            )}
+          </TabsContent>
+          <TabsContent value="instagram" className="focus:outline-none">
+            {iLoading ? (
+              <div
+                className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3"
+                role="status"
+                aria-label="Loading Instagram posts"
+              >
+                {Array.from({ length: PAGE_SIZE }).map((_, i) => (
+                  <div key={i} className="rounded-2xl border p-4">
+                    <div className="flex items-center gap-3">
+                      <Skeleton className="h-10 w-10 rounded-full" />
+                      <div className="flex-1">
+                        <Skeleton className="mb-2 h-4 w-32" />
+                        <Skeleton className="h-3 w-24" />
+                      </div>
+                    </div>
+                    <div className="mt-4">
+                      <Skeleton className="aspect-square w-full rounded-lg" />
+                    </div>
+                    <div className="mt-4 flex items-center gap-3">
+                      <Skeleton className="h-8 w-8 rounded-full" />
+                      <Skeleton className="h-4 w-10" />
+                      <Skeleton className="h-8 w-8 rounded-full" />
+                      <Skeleton className="h-4 w-10" />
+                    </div>
+                    <Skeleton className="mt-3 h-4 w-3/4" />
+                    <Skeleton className="mt-2 h-4 w-1/2" />
+                  </div>
+                ))}
+              </div>
+            ) : iError ? (
+              <div className="mx-auto max-w-md rounded-xl border p-6 text-center">
+                <p className="mb-4 text-muted-foreground">{iError}</p>
+                <Button
+                  onClick={() => {
+                    setIPage(1);
+                    loadInstagram(1, true);
+                  }}
+                >
+                  Retry
+                </Button>
+              </div>
+            ) : (
+              <>
+                <div
+                  className="mb-4 text-sm text-muted-foreground"
+                  aria-live="polite"
+                >
+                  {iCount} posts
+                </div>
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+                  {posts.map((p) => (
+                    <PostCard key={p.id} post={p} />
+                  ))}
+                </div>
+                <div ref={iSentinelRef} className="h-px w-full" />
+                {iHasMore && (
+                  <div className="mt-6 flex justify-center">
+                    <Button
+                      variant="outline"
+                      onClick={() => {
+                        const next = iPage + 1;
+                        setIPage(next);
+                        loadInstagram(next);
+                      }}
+                      disabled={iFetchingMore}
+                    >
+                      {iFetchingMore ? "Loading…" : "Load more"}
+                    </Button>
+                  </div>
+                )}
+              </>
+            )}
+          </TabsContent>
+        </Tabs>
       </section>
 
       {/* Newsletter CTA */}
