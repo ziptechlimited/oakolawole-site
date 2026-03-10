@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/carousel";
 import { toast } from "@/components/ui/use-toast";
 import type { InstagramPost } from "@/types/instagram";
-import { formatCount } from "@/lib/instagram";
 import { cn } from "@/lib/utils";
 
 interface PostCardProps {
@@ -216,11 +215,6 @@ export function PostCard({ post, className }: PostCardProps) {
         </div>
       </header>
       <div>{media}</div>
-      {/* <img
-        src="https://instagram.flos5-2.fna.fbcdn.net/v/t51.82787-15/622008294_17851582437656705_6148423031508150229_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.flos5-2.fna.fbcdn.net&_nc_cat=105&_nc_oc=Q6cZ2QGBSfCBVyzj1Z62g1YZ-Oi5Y0vq0cGQodpxvIEKZiFL4MLv380kOAGXPyeQpUxiPJA&_nc_ohc=07Ppe93Q0KkQ7kNvwGQkkjj&_nc_gid=X7t3lX9RCU7kmuHKeAJkyw&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Afys6lkbGuQPsvc8kowQ1MjXEHSBDTHOQjc8pRNmmzt58A&oe=69B0F123&_nc_sid=7a9f4b"
-        alt=""
-      />
-      <p>helloworld</p> */}
       <div className="flex items-center justify-between px-4 py-3">
         <div className="flex items-center gap-3">
           <Button

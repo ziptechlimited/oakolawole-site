@@ -10,7 +10,7 @@ const navLinks = [
   { name: "About", path: "/about" },
   { name: "Practice Areas", path: "/practice" },
   { name: "Our Team", path: "/team" },
-  { name: "Articles", path: "/blog" },
+  { name: "Blog", path: "/blog" },
   { name: "CSR", path: "/csr" },
   { name: "Contact", path: "/contact" },
 ];

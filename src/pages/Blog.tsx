@@ -161,7 +161,7 @@ const Blog = () => {
         <div className="container-custom flex items-center justify-between py-3">
           <div className="flex items-center gap-3">
             <img src={logo} alt="" className="h-8 w-auto" />
-            <h1 className="text-lg font-semibold">Explore</h1>
+            <h1 className="text-lg font-semibold hidden md:block">Explore</h1>
           </div>
           <Tabs
             value={active}

@@ -165,7 +165,7 @@ const Team = () => {
                     <p className="text-accent font-medium text-sm mb-3">
                       {member.role}
                     </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
                       {member.bio}
                     </p>
                   </div>

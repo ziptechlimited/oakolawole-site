@@ -20,6 +20,7 @@ export type ScrapedInstagramPost = {
   timestamp: string;
   ownerUsername: string;
   images?: string[];
+  videoUrl?: string;
 };
 
 export type InstagramPost = {
