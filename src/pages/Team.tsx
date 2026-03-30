@@ -41,15 +41,14 @@ const teamMembers = [
     email: "funmi@oakolawoleandco.com",
     linkedin: "https://www.linkedin.com/in/funmi-joseph-9a944a14/",
   },
-  {
-    name: "Aniefiok Ekanem, Esq.",
-    role: "Senior Associate",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    bio: "A dedicated legal professional with strong expertise in immigration and labour law, providing practical solutions for complex legal challenges.",
-    email: "aniefiok@oakolawoleandco.com",
-    linkedin: "https://www.linkedin.com/in/aniefiok-ekanem-9a944a14/",
-  },
+  // {
+  //   name: "Aniefiok Ekanem, Esq.",
+  //   role: "Senior Associate",
+  //   image: "https://img.icons8.com/?size=100&id=2906&format=png&color=000000",
+  //   bio: "A dedicated legal professional with strong expertise in immigration and labour law, providing practical solutions for complex legal challenges.",
+  //   email: "aniefiok@oakolawoleandco.com",
+  //   linkedin: "https://www.linkedin.com/in/aniefiok-ekanem-9a944a14/",
+  // },
   {
     name: "Daniel Oyetunji, Esq. ACArb",
     role: "Associate",
