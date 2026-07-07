@@ -72,7 +72,7 @@ const teamMembers = [
     role: "Human Resources",
     image:
       "https://res.cloudinary.com/dgxl5swen/image/upload/v1769614463/favour.jpg",
-    bio: "Ensuring our team operates at peak performance, Jennifer manages our human resources and administrative functions with dedication.",
+    bio: "Ensuring our team operates at peak performance, Favour manages our human resources and administrative functions with dedication.",
     email: "fnwachukwu@oakolawoleandco.com",
     linkedin: "https://www.linkedin.com/in/favour-nwachukwu-9a944a14/",
   },
