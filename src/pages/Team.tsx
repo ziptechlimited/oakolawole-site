@@ -38,7 +38,7 @@ const teamMembers = [
     image:
       "https://res.cloudinary.com/dgxl5swen/image/upload/v1769384391/funmi.jpg",
     bio: "Leading our Lagos operations with expertise in energy law and commercial litigation, Funmi ensures our Lagos clients receive exceptional service.",
-    email: "funmi@oakolawoleandco.com",
+    email: "oojoseph@oakolawoleandco.com",
     linkedin: "https://www.linkedin.com/in/funmi-joseph-9a944a14/",
   },
   // {
