@@ -59,6 +59,15 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/daniel-oyetunji-9a944a14/",
   },
   {
+    name: "Kolawole Ibrahim Amuda, Esq. LL.B (Hons) | B.L (Hons) | MICIArb | MiLA",
+    role: "Associate",
+    image:
+      "https://res.cloudinary.com/dgxl5swen/image/upload/v1783677590/Ibrahim.jpg",
+    bio: "A Member of the Chartered Institute of Arbitrators and the International Law Association, Kolawole's interest in dispute resolution draws him naturally to litigation and arbitration practice. He advises and represents clients across general litigation, corporate and commercial matters, and maritime law. His membership of the Chartered Institute of Arbitrators reflects a grounding in structured dispute resolution that complements his courtroom practice.",
+    email: "danieloyetunji@oakolawoleandco.com",
+    linkedin: "https://www.linkedin.com/in/daniel-oyetunji-9a944a14/",
+  },
+  {
     name: "Etoroabasi Umoh, Esq. AICMC",
     role: "Associate",
     image:
