@@ -167,13 +167,13 @@ const Team = () => {
                     <div className="absolute bottom-0 left-0 right-0 h-1 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                   </div>
                   <div className="p-6">
-                    <h3 className="font-playfair text-xl font-semibold text-primary mb-1">
+                    <h3 className="font-playfair text-xl font-semibold text-primary mb-1 line-clamp-1" title={member.name}>
                       {member.name}
                     </h3>
                     <p className="text-accent font-medium text-sm mb-3">
                       {member.role}
                     </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3" title={member.bio}>
                       {member.bio}
                     </p>
                   </div>
